@@ -1,0 +1,25 @@
+<%= form_for @cthread do |c| %>
+  <% if @cthread.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cthread.errors.count, "error") %> prohibited
+        this course from being saved:
+      </h2>
+      <ul>
+        <% @cthread.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= c.label :title %><br>
+    <%= c.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= c.submit %>
+  </p>
+  
+<% end %>

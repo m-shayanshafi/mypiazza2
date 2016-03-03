@@ -1,0 +1,17 @@
+<div id="courses-table">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Posted on</th>
+        </tr>
+        <% @cthreads.each do |cthread| %>
+            <tr>
+                <td><%= link_to cthread.title, course_cthreads_path(cthread) %></td>
+                <td><%= cthread.posted_on %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+<br />
+<%= link_to 'Create new thread', new_course_cthread_path %>

@@ -22,4 +22,14 @@ ActiveRecord::Schema.define(version: 20160303201440) do
     t.datetime "updated_at"
   end
 
+  create_table "cthreads", force: :cascade do |t|
+    t.integer  "course_id"
+    t.string   "title"
+    t.datetime "posted_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id"
+
 end

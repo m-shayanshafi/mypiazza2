@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+cthreads = [
+    {:title => "hw1", :posted_on => '30-Jan-2016'},
+    {:title => "hw2", :posted_on => '10-Feb-2016'},
+    {:title => "hw3", :posted_on => '20-Feb-2016'}
+]
+
+
 seed_courses = [
     {:cnum => 'CS 202', :title => 'Data Structures', :term => 'Spring 2016',
     :start_date => '17-Jan-2016'},
@@ -14,9 +21,13 @@ seed_courses = [
     {:cnum => 'CS 375', :title => 'Databases', :term => 'Fall 2015-16',
     :start_date => '17-Jan-2016'}
  ]
+ 
  # NOTE: the following line temporarily allows mass assignment
  # (needed if you used attr_accessible/attr_protected in movie.rb)
  
  seed_courses.each do |course|
-    Course.create! (course)
+    crs = Course.create! (course)
+    crs.cthreads.create cthreads[0]
+    crs.cthreads.create cthreads[1]
+    crs.cthreads.create cthreads[2]
  end

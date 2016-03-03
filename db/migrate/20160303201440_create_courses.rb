@@ -8,5 +8,12 @@ class CreateCourses < ActiveRecord::Migration
       
       t.timestamps
     end
+    
+    create_table :cthreads do |t|
+      t.belongs_to :course, index:true
+      t.string 'title'
+      t.datetime 'posted_on'
+      t.timestamps
+    end
   end
 end
