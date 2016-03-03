@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
         @course = Course.find_by_id(id);
        
         if @course.nil?
-            flash[:notice] = "the course doesn't exist"
+            flash[:notice] = "Course doesn't exist"
             
             redirect courses_path
         end
@@ -22,6 +22,26 @@ class CoursesController < ApplicationController
     def create
         @course = Course.create! course_params
         flash[:notice] = "#{@course.title} was successfully created."
+        redirect_to courses_path
+    end
+    
+    def edit
+        id = params[:id]
+       
+        @course = Course.find_by_id(id);
+       
+        if @course.nil?
+            flash[:notice] = "Course doesn't exist"
+            
+            redirect courses_path
+        end
+    end
+    
+    def update
+        @course = Course.find(params[:id])
+        @course.update_attributes! (course_params);
+        
+        flash[:notice] = "#{@course.title} was updated successfully."
         redirect_to courses_path
     end
 

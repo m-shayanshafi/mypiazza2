@@ -12,6 +12,8 @@
                 <td><%= link_to course.title, course_path(course) %></td>
                 <td><%= course.term %></td>
                 <td><%= course.start_date %></td>
+                <td><%= link_to 'Edit', edit_course_path(course) %></td>
+                <!--<td><%= course.start_date %></td>-->
             </tr>
         <% end %>
     </table>
