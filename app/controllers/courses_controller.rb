@@ -38,10 +38,28 @@ class CoursesController < ApplicationController
     end
     
     def update
-        @course = Course.find(params[:id])
-        @course.update_attributes! (course_params);
+        @course = Course.find_by_id(params[:id])
         
-        flash[:notice] = "#{@course.title} was updated successfully."
+        if @course.nil?
+            flash[:notice] = "Course doesn't exist"
+        else
+            @course.update_attributes! (course_params);
+            flash[:notice] = "#{@course.title} was updated successfully."
+        end
+        
+        redirect_to courses_path
+    end
+    
+    def destroy 
+        @course = Course.find_by_id(params[:id])
+       
+        if @course.nil?
+            flash[:notice] = "Course doesn't exist"
+        else
+            @course.destroy
+            flash[:notice] = "#{@course.title} was deleted successfully."
+        end
+        
         redirect_to courses_path
     end
 
