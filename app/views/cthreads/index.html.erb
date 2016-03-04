@@ -8,6 +8,8 @@
             <tr>
                 <td><%= link_to cthread.title, course_cthreads_path(cthread) %></td>
                 <td><%= cthread.posted_on %></td>
+                <td><%= link_to 'Edit', edit_course_cthread_path(@course.id, cthread) %></td>
+                <td><%= link_to 'Delete', course_cthread_path(@course.id, cthread), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </table>

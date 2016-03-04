@@ -1,4 +1,4 @@
-<%= form_for @cthread do |c| %>
+<%= form_for [@course, @cthread] do |c| %>
   <% if @cthread.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -16,6 +16,11 @@
   <p>
     <%= c.label :title %><br>
     <%= c.text_field :title %>
+  </p>
+  
+  <p>
+    <%= c.label :posted_on %><br>
+    <%= c.date_select :posted_on %>
   </p>
  
   <p>
