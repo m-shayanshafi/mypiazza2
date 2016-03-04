@@ -1,14 +1,12 @@
 class CthreadsController < ApplicationController
     def index
         @course = Course.find_by_id(params[:course_id])
-        
         @cthreads = @course.cthreads.order('title')
     end
 
     def show
-        id = params[:id]
-       
-        @cthread = Cthread.find_by_id(id);
+        @course = Course.find_by_id(params[:course_id]);
+        @cthread = Cthread.find_by_id(params[:id]);
        
         if @cthread.nil?
             flash[:notice] = "Thead #{id} doesn't exist"
