@@ -4,9 +4,7 @@ class CoursesController < ApplicationController
     end
 
     def show
-        id = params[:id]
-       
-        @course = Course.find_by_id(id);
+        @course = Course.find_by_id(params[:id]);
        
         if @course.nil?
             flash[:notice] = "Course doesn't exist"
@@ -26,9 +24,7 @@ class CoursesController < ApplicationController
     end
     
     def edit
-        id = params[:id]
-       
-        @course = Course.find_by_id(id);
+        @course = Course.find_by_id(params[:id]);
        
         if @course.nil?
             flash[:notice] = "Course doesn't exist"
