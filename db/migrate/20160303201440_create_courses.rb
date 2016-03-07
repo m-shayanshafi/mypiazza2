@@ -17,7 +17,6 @@ class CreateCourses < ActiveRecord::Migration
     end
 
     create_table :questions do |t|
-      t.belongs_to :course, index:true
       t.belongs_to :cthread, index:true
       t.string :heading
       t.string :statement

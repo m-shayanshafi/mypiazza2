@@ -11,8 +11,14 @@ class CthreadsController < ApplicationController
     def show
         # accessing variables
         @course = Course.find_by_id(params[:course_id]);
-        @cthread = Cthread.find_by_id(params[:id]);
+        @cthread = @course.cthreads.find_by_id(params[:id]);
         @questions = @cthread.questions
+
+        puts @questions
+
+        if @questions.nil?
+            puts "data not found!!!!!!!!!!!!"
+        end
        
         # redirecting if invalid path in URI
         redirect_invalid(@course, @cthread, params)
@@ -39,7 +45,7 @@ class CthreadsController < ApplicationController
     def edit
         # accessing variables
         @course = Course.find_by_id(params[:course_id])
-        @cthread = Cthread.find_by_id(params[:id]);
+        @cthread = @course.cthreads.find_by_id(params[:id]);
        
         # redirecting if invalid path in URI
         redirect_invalid(@course, @cthread, params)

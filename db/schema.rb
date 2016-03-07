@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20160303201440) do
   add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id"
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "course_id"
     t.integer  "cthread_id"
     t.string   "heading"
     t.string   "statement"
@@ -42,7 +41,6 @@ ActiveRecord::Schema.define(version: 20160303201440) do
     t.datetime "updated_at"
   end
 
-  add_index "questions", ["course_id"], name: "index_questions_on_course_id"
   add_index "questions", ["cthread_id"], name: "index_questions_on_cthread_id"
 
 end
