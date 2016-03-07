@@ -1,7 +1,15 @@
 class QuestionsController < ApplicationController
+    def show
+        # accessing variables
+        @course = Course.find_by_id(params[:course_id]);
+        @cthread = Cthread.find_by_id(params[:cthread_id]);
+        @question = Question.find_by_id(params[:id])
+        @responses = @question.responses
+    end
+
     def new
         @course = Course.find_by_id(params[:course_id])
-        @cthread = @course.cthreads.find_by_id(params[:cthread_id])
+        @cthread = Cthread.find_by_id(params[:cthread_id])
         @question = Question.new
     end
     

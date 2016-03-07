@@ -13,12 +13,6 @@ class CthreadsController < ApplicationController
         @course = Course.find_by_id(params[:course_id]);
         @cthread = @course.cthreads.find_by_id(params[:id]);
         @questions = @cthread.questions
-
-        puts @questions
-
-        if @questions.nil?
-            puts "data not found!!!!!!!!!!!!"
-        end
        
         # redirecting if invalid path in URI
         redirect_invalid(@course, @cthread, params)

@@ -1,7 +1,6 @@
 <div>
-    <h1><%= @course.title %> - <%= @course.cnum %></h1>
-    <p><%= @course.term %>, starts on <%= @course.start_date %></p>
-</div>
+    <h1><%= @course.title %> - <%= @course.cnum %>, <%= @course.term %> </h1>
+    <hr />
 
 <h2>List of Active Threads</h2>
 <table>
@@ -18,6 +17,7 @@
         </tr>
     <% end %>
 </table>
+</div>
 
 <!--<%= link_to 'View threads', course_cthreads_path(@course.id) %>-->
 <br />

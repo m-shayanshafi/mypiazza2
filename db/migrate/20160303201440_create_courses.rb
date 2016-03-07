@@ -14,12 +14,20 @@ class CreateCourses < ActiveRecord::Migration
       t.string 'title'
       t.datetime 'posted_on'
       t.timestamps
-    end
+    end 
 
     create_table :questions do |t|
       t.belongs_to :cthread, index:true
       t.string :heading
       t.string :statement
+      t.string :posted_by
+
+      t.timestamps
+    end
+
+    create_table :responses do |t|
+      t.belongs_to :question, index:true
+      t.string :answer
       t.string :posted_by
 
       t.timestamps

@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   
   resources :courses do
     resources :cthreads do
-        resources :questions
+        resources :questions do
+          resources :responses
+        end
     end
   end
 

@@ -43,4 +43,14 @@ ActiveRecord::Schema.define(version: 20160303201440) do
 
   add_index "questions", ["cthread_id"], name: "index_questions_on_cthread_id"
 
+  create_table "responses", force: :cascade do |t|
+    t.integer  "question_id"
+    t.string   "answer"
+    t.string   "posted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["question_id"], name: "index_responses_on_question_id"
+
 end

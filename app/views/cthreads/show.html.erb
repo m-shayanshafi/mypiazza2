@@ -1,5 +1,7 @@
 <div>
     <h1><%= @course.title %>, <%= @cthread.title %></h1>
+    <hr />
+
     <h2>Questions</h2>
     
     <% if @questions.nil? %>
@@ -7,12 +9,13 @@
     <% else %>
         <% @questions.each do |question| %>
             <h2 style="display:inline;"> <%= question.heading %> </h2> 
+                <%= link_to 'view', course_cthread_question_path(@course, @cthread, question.id) %>
                 <%= link_to 'edit', edit_course_cthread_question_path(@course, @cthread, question.id) %>
                 <%= link_to 'delete', course_cthread_question_path(@course, @cthread, question.id), method: :delete, data: { confirm: 'Are you sure?' } %>
             <br />
-            <h3> <%= question.statement %></h3>
+            <p> <%= question.statement %></p>
 
-            <p> Posted by: <%= question.posted_by %></p>
+            <p><i> Posted by: <%= question.posted_by %></i></p>
         <% end %>
     <% end %>
 </div>
