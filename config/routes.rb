@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   #   resources :products
   
   resources :courses do
-    resources :cthreads
+    resources :cthreads do
+        resources :questions
+    end
   end
 
   # Example resource route with options:

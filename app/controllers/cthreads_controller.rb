@@ -1,18 +1,21 @@
 class CthreadsController < ApplicationController
     def index
+        # accessing variables
         @course = Course.find_by_id(params[:course_id])
         @cthreads = @course.cthreads.order('title')
+
+        # redirecting if invalid path in URI
+        redirect_invalid(@course, @cthread, params)
     end
 
     def show
+        # accessing variables
         @course = Course.find_by_id(params[:course_id]);
         @cthread = Cthread.find_by_id(params[:id]);
+        @questions = @cthread.questions
        
-        if @cthread.nil?
-            flash[:notice] = "Thead #{id} doesn't exist"
-            
-            redirect_to course_cthreads_path
-        end
+        # redirecting if invalid path in URI
+        redirect_invalid(@course, @cthread, params)
     end
     
     def new
@@ -21,44 +24,52 @@ class CthreadsController < ApplicationController
     end
     
     def create
-        course_id = params[:course_id]
+        @course = Course.find_by_id(params[:course_id])
+
+        # else inserting the data
         title = params[:cthread][:title]
         date = Date.new params[:cthread]["posted_on(1i)"].to_i, params[:cthread]["posted_on(2i)"].to_i, params[:cthread]["posted_on(3i)"].to_i
         
-        @cthread = Cthread.create! ({:course_id => course_id,:title => title, :posted_on => date})
-        flash[:notice] = "#{@cthread.title} for \"#{Course.find_by_id(course_id).title}\" was successfully created."
+        @cthread = Cthread.create! ({:course_id => @course.id,:title => title, :posted_on => date})
+        flash[:notice] = "#{@cthread.title}, #{@course.title} was successfully created."
         
-        redirect_to course_cthreads_path
+        redirect_to course_path(@course.id)
     end
     
     def edit
+        # accessing variables
         @course = Course.find_by_id(params[:course_id])
         @cthread = Cthread.find_by_id(params[:id]);
        
-        if @cthread.nil?
-            flash[:notice] = "Thead doesn't exist"
-            
-            redirect course_cthreads_path
-        end
+        # redirecting if invalid path in URI
+        redirect_invalid(@course, @cthread, params)
     end
     
     def update
+        # accessing variables
+        @course = Course.find_by_id(params[:course_id])
         @cthread = Cthread.find_by_id(params[:id])
+
+        # redirecting if invalid path in URI
+        redirect_invalid(@course, @cthread, params) 
+
+        # else updating data
         new_title = params[:cthread][:title]
         new_date = get_date(params[:cthread])
+    
+        @cthread.update_attributes! ({:title => new_title, :posted_on => new_date});
+        flash[:notice] = "#{@cthread.title}, #{@course.title} was updated successfully."
         
-        if @cthread.nil?
-            flash[:notice] = "Course doesn't exist"
-        else
-            @cthread.update_attributes! ({:title => new_title, :posted_on => new_date});
-            flash[:notice] = "#{@cthread.title} for \"#{Course.find_by_id(params[:course_id]).title}\" was updated successfully."
-        end
-        
-        redirect_to course_cthreads_path
+        redirect_to course_path(@course.id)
     end
     
     def destroy 
+        # accessing variables
+        @course = Course.find_by_id(params[:course_id])
         @cthread = Cthread.find_by_id(params[:id])
+
+        # redirecting if invalid path in URI
+        redirect_invalid(@course, @cthread, params) 
        
         if @cthread.nil?
             flash[:notice] = "Course doesn't exist"
@@ -67,9 +78,10 @@ class CthreadsController < ApplicationController
             flash[:notice] = "#{@cthread.title} was deleted successfully."
         end
         
-        redirect_to course_cthreads_path
+        redirect_to course_path(params[:course_id])
     end
 
+    # helper functions
     private
     def cthread_params
         params.require(:cthread).permit(:title)
@@ -77,5 +89,19 @@ class CthreadsController < ApplicationController
     
     def get_date(p)
         Date.new p["posted_on(1i)"].to_i, p["posted_on(2i)"].to_i, p["posted_on(3i)"].to_i
+    end
+
+    def redirect_invalid(course, cthread, params)
+        if course.nil?
+            flash[:notice] = "Course #{params[:course_id]} doesn't exist"
+
+            redirect_to courses_path
+        else
+            if cthread.nil?
+                flash[:notice] = "Thead #{params[:id]} doesn't exist"
+                
+                redirect_to course_path(params[:course_id])
+            end
+        end
     end
 end

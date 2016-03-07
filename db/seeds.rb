@@ -12,6 +12,12 @@ cthreads = [
     {:title => "hw3", :posted_on => '20-Feb-2016'}
 ]
 
+questions = [
+    {heading: "when is it due?", statement: "i wanted to ask about the
+        due date of the assignment", posted_by: "anon"},
+    {heading: "extension?", statement: "please extend deadline", posted_by: "nofel yasin"}
+]
+
 
 seed_courses = [
     {:cnum => 'CS 202', :title => 'Data Structures', :term => 'Spring 2016',

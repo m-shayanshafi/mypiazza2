@@ -1,10 +1,21 @@
 <div>
-    <h1><%= @cthread.title %></h1>
+    <h1><%= @course.title %>, <%= @cthread.title %></h1>
     <h2>Questions</h2>
-    <p>question 1</p>
-    <p>question 2</p>
-    <p>question 3</p>
+    
+    <% if @questions.nil? %>
+        <p>No Questions posted yet</p>
+    <% else %>
+        <% @questions.each do |question| %>
+            <h2> <%= question.heading %></h2>
+
+            <h3> <%= question.statement %></h3>
+
+            <p> Posted by: <%= question.posted_by %></p>
+        <% end %>
+    <% end %>
 </div>
 
 <br />
-<%= link_to 'Back', course_cthreads_path(@course.id) %>
+<%= link_to 'New question', new_course_cthread_question_path(@course, @cthread) %>
+<br />
+<%= link_to 'Back', course_path(@course.id) %>
