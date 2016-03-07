@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
 
     def show
         @course = Course.find_by_id(params[:id]);
+        @cthreads = @course.cthreads.order('title');
        
         if @course.nil?
             flash[:notice] = "Course doesn't exist"
