@@ -6,7 +6,9 @@
         <p><%= print "no data found" %></p>
     <% else %>
         <% @questions.each do |question| %>
-            <h2 style="display:inline;"> <%= question.heading %> </h2> <%= link_to 'edit', edit_course_cthread_question_path(@course, @cthread, question.id) %>
+            <h2 style="display:inline;"> <%= question.heading %> </h2> 
+                <%= link_to 'edit', edit_course_cthread_question_path(@course, @cthread, question.id) %>
+                <%= link_to 'delete', course_cthread_question_path(@course, @cthread, question.id), method: :delete, data: { confirm: 'Are you sure?' } %>
             <br />
             <h3> <%= question.statement %></h3>
 
