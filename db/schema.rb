@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160323215249) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: :cascade do |t|
     t.string   "cnum"
     t.string   "title"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.datetime "updated_at"
   end
 
-  add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id"
+  add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id", using: :btree
 
   create_table "enrolments", force: :cascade do |t|
     t.string   "course_name"
@@ -41,30 +44,28 @@ ActiveRecord::Schema.define(version: 20160323215249) do
 
   create_table "questions", force: :cascade do |t|
     t.integer  "cthread_id"
+    t.integer  "user_id"
     t.string   "heading"
     t.string   "statement"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "questions", ["cthread_id"], name: "index_questions_on_cthread_id"
-  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+  add_index "questions", ["cthread_id"], name: "index_questions_on_cthread_id", using: :btree
 
   create_table "responses", force: :cascade do |t|
     t.integer  "question_id"
+    t.integer  "user_id"
     t.string   "answer"
     t.string   "posted_by"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "responses", ["question_id"], name: "index_responses_on_question_id"
-  add_index "responses", ["user_id"], name: "index_responses_on_user_id"
+  add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",                   default: "",        null: false
     t.string   "email",                  default: "",        null: false
     t.string   "encrypted_password",     default: "",        null: false
     t.string   "user_type",              default: "student", null: false
@@ -76,16 +77,8 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

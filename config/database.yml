@@ -13,7 +13,7 @@
 
 development:
   adapter: postgresql
-  database: milega_development
+  database: piazzamadegreat_development
   host: localhost
   username: pguser
   password: M4sk3dv1p3r
@@ -21,7 +21,7 @@ development:
   timeout: 5000
 test:
   adapter: postgresql
-  database: milega_test
+  database: piazzamadegreat_test
   host: localhost
   host: localhost
   username: pguser
@@ -31,6 +31,6 @@ test:
 
 production:
   adapter: postgresql
-  database: milega_production
+  database: piazzamadegreat_production
   pool: 5
   timeout: 5000
