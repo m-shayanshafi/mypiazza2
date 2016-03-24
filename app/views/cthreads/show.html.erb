@@ -1,0 +1,30 @@
+<div>
+    <h1><%= @course.title %>, <%= @cthread.title %></h1>
+    <hr />
+
+    <h2>Questions</h2>
+    
+    <% if @questions.nil? %>
+        <p><%= print "no data found" %></p>
+    <% else %>
+        <% @questions.each do |question| %>
+            <h2 style="display:inline;"> <%= question.heading %> </h2> 
+                <%= link_to 'view', course_cthread_question_path(@course, @cthread, question.id) %>
+                <% if can? :edit, question %>
+                    <%= link_to 'edit', edit_course_cthread_question_path(@course, @cthread, question.id) %>
+                <% end %>
+                <% if can? :delete, question %>
+                    <%= link_to 'delete', course_cthread_question_path(@course, @cthread, question.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+            <br />
+            <p> <%= question.statement %></p>
+
+            <p><i> Posted by: <%= @user_names[question.user_id] %></i></p>
+        <% end %>
+    <% end %>
+</div>
+
+<br />
+<%= link_to 'New question', new_course_cthread_question_path(@course, @cthread) %>
+<br />
+<%= link_to 'Back', course_path(@course.id) %>

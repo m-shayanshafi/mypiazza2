@@ -1,0 +1,9 @@
+<h1> <%= @course.title %>, <%= @cthread.title %></h1>
+<hr />
+
+<h2><%= @question.heading %></h2>
+<p><%= @question.statement %></p>
+<p><i> Posted by: <%= @question.user_id %></i></p>
+
+
+<%= render 'form' %>

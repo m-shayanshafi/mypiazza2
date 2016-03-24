@@ -1,0 +1,21 @@
+<div id="courses-table">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Posted on</th>
+        </tr>
+        <% @cthreads.each do |cthread| %>
+            <tr>
+                <td><%= link_to cthread.title, course_cthread_path(@course, cthread) %></td>
+                <td><%= cthread.posted_on %></td>
+                <td><%= link_to 'Edit', edit_course_cthread_path(@course, cthread) %></td>
+                <td><%= link_to 'Delete', course_cthread_path(@course, cthread), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+<br />
+<%= link_to 'Create new thread', new_course_cthread_path %>
+<br />
+<%= link_to "Back to #{@course.title}", course_path(@course) %>
