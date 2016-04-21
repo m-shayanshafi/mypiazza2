@@ -13,10 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20160323215249) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "courses", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "cnum"
     t.string   "title"
     t.string   "term"
@@ -24,6 +22,8 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "courses", ["user_id"], name: "index_courses_on_user_id"
 
   create_table "cthreads", force: :cascade do |t|
     t.integer  "course_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.datetime "updated_at"
   end
 
-  add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id", using: :btree
+  add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id"
 
   create_table "enrolments", force: :cascade do |t|
     t.string   "course_name"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.datetime "updated_at"
   end
 
-  add_index "questions", ["cthread_id"], name: "index_questions_on_cthread_id", using: :btree
+  add_index "questions", ["cthread_id"], name: "index_questions_on_cthread_id"
 
   create_table "responses", force: :cascade do |t|
     t.integer  "question_id"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.datetime "updated_at"
   end
 
-  add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
+  add_index "responses", ["question_id"], name: "index_responses_on_question_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "",        null: false

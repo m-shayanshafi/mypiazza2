@@ -14,8 +14,12 @@
                 <td><%= link_to course.title, course_path(course) %></td>
                 <td><%= course.term %></td>
                 <td><%= course.start_date %></td>
-                <td><%= link_to 'Edit', edit_course_path(course) %></td>
-                <td><%= link_to 'Delete', course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% if can? :edit, course %>
+                    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+                <% end %>
+                <% if can? :delete, course %>
+                    <td><%= link_to 'Delete', course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
             </tr>
         <% end %>
     </table>

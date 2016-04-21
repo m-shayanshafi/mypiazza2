@@ -1,6 +1,7 @@
 class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
+      t.belongs_to :user, index:true
       t.string :cnum
       t.string :title
       t.string :term

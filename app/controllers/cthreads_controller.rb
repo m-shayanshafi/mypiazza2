@@ -1,8 +1,12 @@
 class CthreadsController < ApplicationController
     def index
         # accessing variables
+        @isinstructor = false
         @course = Course.find_by_id(params[:course_id])
         @cthreads = @course.cthreads.order('title')
+        if current_user.user_type == "instructor"
+            @isinstructor = true
+        end
 
         # redirecting if invalid path in URI
         redirect_invalid(@course, @cthread, params)

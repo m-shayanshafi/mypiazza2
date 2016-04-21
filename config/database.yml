@@ -12,15 +12,15 @@
 #   database: db/test.sqlite3
 
 development:
-  adapter: postgresql
+  adapter: sqlite3
   database: piazzamadegreat_development
   host: localhost
   username: pguser
   password: M4sk3dv1p3r
   pool: 5
   timeout: 5000
-test:
-  adapter: postgresql
+test: &test
+  adapter: sqlite3
   database: piazzamadegreat_test
   host: localhost
   host: localhost
@@ -34,3 +34,5 @@ production:
   database: piazzamadegreat_production
   pool: 5
   timeout: 5000
+cucumber:
+  <<: *test

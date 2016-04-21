@@ -20,12 +20,13 @@ questions = [
 
 seed_courses = [
     {:cnum => 'CS 202', :title => 'Data Structures', :term => 'Spring 2016',
-    :start_date => '17-Jan-2016'},
+    :start_date => '17-Jan-2016', user_id: 1}, 
     {:cnum => 'CS 300', :title => 'Advanced  Programming', :term => 'Spring 2016',
-    :start_date => '17-Jan-2016'},
+    :start_date => '17-Jan-2016', user_id: 1},
     {:cnum => 'CS 375', :title => 'Databases', :term => 'Fall 2015-16',
-    :start_date => '17-Jan-2016'}
+    :start_date => '17-Jan-2016', user_id: 1}
  ]
+ 
  
  # NOTE: the following line temporarily allows mass assignment
  # (needed if you used attr_accessible/attr_protected in movie.rb)

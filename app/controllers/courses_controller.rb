@@ -1,6 +1,11 @@
 class CoursesController < ApplicationController
+    # load_and_authorize_resource
     def index
-        @courses = Course.all
+        if current_user.user_type == 'instructor'
+            @courses = current_user.courses
+        else
+            @courses = Course.all
+        end
     end
 
     def show
@@ -20,6 +25,8 @@ class CoursesController < ApplicationController
     
     def create
         @course = Course.create! course_params
+        @course.user = current_user
+        @course.save
         flash[:notice] = "#{@course.title} was successfully created."
         redirect_to courses_path
     end

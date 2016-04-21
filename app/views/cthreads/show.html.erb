@@ -13,7 +13,7 @@
                 <% if can? :edit, question %>
                     <%= link_to 'edit', edit_course_cthread_question_path(@course, @cthread, question.id) %>
                 <% end %>
-                <% if can? :delete, question %>
+                <% if can? :destroy, question %>
                     <%= link_to 'delete', course_cthread_question_path(@course, @cthread, question.id), method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
             <br />
