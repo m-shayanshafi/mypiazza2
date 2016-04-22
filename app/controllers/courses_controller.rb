@@ -4,7 +4,8 @@ class CoursesController < ApplicationController
         if current_user.user_type == 'instructor'
             @courses = current_user.courses
         else
-            @courses = Course.all
+            @enrolments = current_user.enrolments
+            @courses = @enrolments.map {|e| Course.find_by_id(e.course_id) }
         end
     end
 
