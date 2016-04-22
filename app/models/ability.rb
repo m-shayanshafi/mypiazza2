@@ -6,8 +6,8 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :crud
 
     if user.persisted?
-      can :read, Question
-      can :read, Course
+      # can :read, Question
+      # can :read, Course
       can :manage, Question, :user_id => user.id
       can :manage, Course, :user_id => user.id
       # can :crud, Cthread, :course => { :user_id => user.id }
@@ -16,13 +16,14 @@ class Ability
     end
     
     if (user.user_type == "instructor")
+      can :crud, Course
       can :crud, Cthread
       can :crud, Question
       can :crud, Response
-      can :crud, Course
       can :crud, Enrolment
     else
-      can :read, Cthread
+      # can :read, Cthread
+      can :read, Course
     end
     
     # if user.user_type == "instructor"

@@ -20,7 +20,7 @@
                 <% if can? :delete, course %>
                     <td><%= link_to 'Delete', course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 <% end %>
-                <% if can? :edit, Enrolment %>
+                <% if can? :create, Enrolment %>
                     <td><%= link_to 'Manage Enrolments', course_enrolments_url(course) %></td>
                 <% end %>
             
@@ -30,6 +30,6 @@
 </div>
 
 <br />
-<% if can? :create, Course %>
+<% if current_user.user_type == 'instructor' %>
     <%= link_to 'Create New Course', new_course_path %>
 <% end %>
