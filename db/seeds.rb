@@ -41,17 +41,17 @@ seed_courses = [
 user = User.new
 user.email = 'shayan@gmail.com'
 user.name = 'Shayan Shafi'
-user.password = 'shayanshafi'
-user.password_confirmation = 'shayanshafi'
+user.password = '12345678'
+user.password_confirmation = '12345678'
 user.user_type = 'instructor'
 user.save
 
 u = User.create!({:name => "Muqsit Nawaz", :email => "muqsitnawaz@gmail.com",
-    :password => "B.D.c00p3r", :password_confirmation => "B.D.c00p3r", :user_type => "student"})
+    :password => "12345678", :password_confirmation => "12345678", :user_type => "student"})
 
 
 u1 = User.create!({:name => "Nofel Yasin", :email => "nofelyasin@yahoo.com",
-    :password => "nofelyasin", :password_confirmation => "nofelyasin", :user_type => "student"})
+    :password => "12345678", :password_confirmation => "12345678", :user_type => "student"})
     
 u1 = User.create!({:name => "Muazzam Asani", :email => "m@yahoo.com",
     :password => "12345678", :password_confirmation => "12345678", :user_type => "instructor"})

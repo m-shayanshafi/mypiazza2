@@ -22,7 +22,7 @@ class CreateCourses < ActiveRecord::Migration
       t.belongs_to :user
       t.string :heading
       t.string :statement
-      # t.string :posted_by
+      t.string :posted_by
 
       t.timestamps
     end

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160323215249) do
     t.integer  "user_id"
     t.string   "heading"
     t.string   "statement"
+    t.string   "posted_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
