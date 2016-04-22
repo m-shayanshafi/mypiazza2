@@ -20,11 +20,11 @@ questions = [
 
 seed_courses = [
     {:cnum => 'CS 202', :title => 'Data Structures', :term => 'Spring 2016',
-    :start_date => '17-Jan-2016', user_id: 1}, 
+    :start_date => '17-Jan-2016', :user_id => 1}, 
     {:cnum => 'CS 300', :title => 'Advanced  Programming', :term => 'Spring 2016',
-    :start_date => '17-Jan-2016', user_id: 1},
+    :start_date => '17-Jan-2016', :user_id => 1},
     {:cnum => 'CS 375', :title => 'Databases', :term => 'Fall 2015-16',
-    :start_date => '17-Jan-2016', user_id: 1}
+    :start_date => '17-Jan-2016', :user_id => 1}
  ]
  
  
@@ -52,3 +52,6 @@ u = User.create!({:name => "Muqsit Nawaz", :email => "muqsitnawaz@gmail.com",
 
 u1 = User.create!({:name => "Nofel Yasin", :email => "nofelyasin@yahoo.com",
     :password => "nofelyasin", :password_confirmation => "nofelyasin", :user_type => "student"})
+    
+u1 = User.create!({:name => "Muazzam Asani", :email => "m@yahoo.com",
+    :password => "12345678", :password_confirmation => "12345678", :user_type => "instructor"})
