@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  resources :enrolments
+  # resources :enrolments
   # get '/enrolments', to: 'enrolments#secret', as: :secret
   devise_for :users
   devise_scope :user do
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
           resources :responses
         end
     end
+    resources :enrolments
   end
 
   # Example resource route with options:

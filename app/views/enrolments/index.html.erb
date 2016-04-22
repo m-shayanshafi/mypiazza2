@@ -14,11 +14,11 @@
   <tbody>
     <% @enrolments.each do |enrolment| %>
       <tr>
-        <td><%= enrolment.course_name %></td>
-        <td><%= enrolment.user_id %></td>
-        <td><%= link_to 'Show', enrolment %></td>
-        <td><%= link_to 'Edit', edit_enrolment_path(enrolment) %></td>
-        <td><%= link_to 'Destroy', enrolment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= enrolment.course.title %></td>
+        <td><%= enrolment.user.name %></td>
+        <!--<td>%= link_to 'Show', course_enrolments_path %></td>-->
+        <!--<td>%= link_to 'Edit', edit_course_enrolment_path(enrolment) %></td>-->
+        <td><%= link_to 'Destroy', [@course,enrolment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Enrolment', new_enrolment_path %>
+<%= link_to 'New Enrolment', new_course_enrolment_path %>
+<%= link_to 'Back to Courses', courses_url %>

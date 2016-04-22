@@ -2,7 +2,7 @@
 
 <p>
   <strong>Course name:</strong>
-  <%= @enrolment.course_name %>
+  <%= @enrolment.course.title %>
 </p>
 
 <p>
@@ -10,5 +10,7 @@
   <%= @enrolment.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_enrolment_path(@enrolment) %> |
-<%= link_to 'Back', enrolments_path %>
+<%= link_to 'Edit', edit_course_enrolment_path(@course, @enrolment) %> |
+<%= link_to 'Back', course_enrolment_path(@enrolment) %>
+<!--%= link_to 'Edit', edit_enrolment_path(@enrolment) %> |-->
+<!--%= link_to 'Back', enrolments_path %>-->

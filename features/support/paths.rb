@@ -22,6 +22,22 @@ module NavigationHelpers
     when /^the sign up page$/
       '/users/sign_up'
 
+    when /^the new page for courses$/
+      new_course_path
+    
+    when /^the edit page for course "(.*)"$/
+      edit_course_path(Course.find_by_cnum($1))
+    
+    when /^the courses page$/
+      '/courses'
+      
+    when /^new thread for course "(.*)"$/
+      course_path(Course.find_by_cnum($1)) + '/cthreads/new'
+      
+    when /^the edit page of thread "(.*)" for course "(.*)"$/
+      course_path(Course.find_by_cnum($2)) + '/cthreads/' + Cthread.find_by_title($1).id.to_s + '/edit'
+      # edit_course_cthread_path(Cthread.find_by_title($1))
+
     when /^the show page for course "(.*)"$/
       course_path(Course.find_by_cnum($1))
     # Add more mappings here.

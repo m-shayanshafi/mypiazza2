@@ -20,6 +20,7 @@ class Ability
       can :crud, Question
       can :crud, Response
       can :crud, Course
+      can :crud, Enrolment
     else
       can :read, Cthread
     end

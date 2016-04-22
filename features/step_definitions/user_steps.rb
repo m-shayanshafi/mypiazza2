@@ -8,9 +8,7 @@ Given /^a valid user$/ do
 end
 
 Given /^a logged in user$/ do
-  Given "a valid user"
-  visit signin_url
   fill_in "Email", :with => "nofel.my@gmail.com"
   fill_in "Password", :with => "12345678"
-  click_button "Sign in"
+  click_button "Log in"
 end

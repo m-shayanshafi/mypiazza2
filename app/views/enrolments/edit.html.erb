@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @enrolment %> |
-<%= link_to 'Back', enrolments_path %>
+<!--%= link_to 'Show', @enrolment %> |-->
+<!--%= link_to 'Back', enrolments_path %>-->
+<%= link_to 'Edit', edit_course_enrolment_path(@course, @enrolment) %> |
+<%= link_to 'Back', course_enrolment_path(@enrolment) %>

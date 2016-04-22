@@ -36,11 +36,14 @@ ActiveRecord::Schema.define(version: 20160323215249) do
   add_index "cthreads", ["course_id"], name: "index_cthreads_on_course_id"
 
   create_table "enrolments", force: :cascade do |t|
-    t.string   "course_name"
+    t.integer  "course_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "enrolments", ["course_id"], name: "index_enrolments_on_course_id"
+  add_index "enrolments", ["user_id"], name: "index_enrolments_on_user_id"
 
   create_table "questions", force: :cascade do |t|
     t.integer  "cthread_id"

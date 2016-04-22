@@ -34,7 +34,7 @@ Scenario: Incorrect Email Signup
   And I press "Sign up"
   Then I should see "Email is invalid"
   
-  Scenario: Incorrect Password Signup
+Scenario: Incorrect Password Signup
   Given I am on the sign up page
   When I fill in "Email" with "nofel.my@gmail.com"
   And I fill in "Password" with "1234567"
@@ -42,3 +42,10 @@ Scenario: Incorrect Email Signup
   And I press "Sign up"
   Then I should see "Password confirmation doesn't match Password"
   And I should see "Password is too short (minimum is 8 characters)"
+  
+Scenario: Sign out
+  Given a valid user
+  And I am on the login page
+  And a logged in user
+  When I follow "Sign out"
+  Then I should be on the login page
