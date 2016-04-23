@@ -3,7 +3,8 @@ Given /^a valid instructor$/ do
              :email => "nofel.my@gmail.com",
              :password => "12345678",
              :password_confirmation => "12345678",
-             :user_type => "instructor"
+             :user_type => "instructor",
+             :name => "nofel"
            })
 end
 

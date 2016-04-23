@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/ubuntu/workspace/app/models/user.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/user.rb": [
         1,
         null,
         null,
@@ -17,14 +17,15 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         1,
         1,
-        8,
+        1,
+        11,
         null,
         null,
         1,
@@ -37,57 +38,58 @@
         null,
         1,
         1,
-        0,
+        34,
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/courses_helper.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/helpers/courses_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/cthreads_helper.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/helpers/cthreads_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/enrolments_helper.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/helpers/enrolments_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/questions_helper.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/helpers/questions_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/responses_helper.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/helpers/responses_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/models/course.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/course.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/controllers/courses_controller.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/controllers/courses_controller.rb": [
         1,
         null,
         1,
-        12,
+        16,
+        10,
+        null,
+        6,
+        7,
+        null,
+        null,
+        null,
+        1,
+        9,
         9,
         null,
-        3,
-        null,
-        null,
-        null,
-        1,
-        5,
-        5,
-        null,
-        5,
+        9,
         0,
         null,
         0,
@@ -148,30 +150,31 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/models/ability.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/ability.rb": [
         1,
         1,
         null,
         1,
-        17,
-        17,
+        16,
+        16,
         null,
-        17,
-        17,
-        17,
-        17,
-        17,
+        16,
         null,
         null,
+        16,
+        16,
         null,
         null,
         null,
-        17,
-        14,
-        14,
-        14,
-        14,
-        14,
+        null,
+        null,
+        16,
+        13,
+        13,
+        13,
+        13,
+        13,
+        null,
         null,
         3,
         null,
@@ -209,7 +212,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/models/question.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/question.rb": [
         1,
         1,
         1,
@@ -217,25 +220,25 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/models/cthread.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/cthread.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/models/response.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/response.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/models/enrolment.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/models/enrolment.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/controllers/cthreads_controller.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/controllers/cthreads_controller.rb": [
         1,
         1,
         null,
@@ -270,21 +273,21 @@
         null,
         null,
         1,
-        1,
-        1,
+        2,
+        2,
         null,
         null,
         1,
-        1,
+        2,
         null,
         null,
-        1,
-        1,
+        2,
+        2,
         null,
-        1,
-        1,
+        2,
+        2,
         null,
-        1,
+        2,
         null,
         null,
         1,
@@ -357,7 +360,25 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/controllers/enrolments_controller.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/mypiazza2/app/mailers/user_mailer.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/mypiazza2/app/controllers/enrolments_controller.rb": [
         0,
         0,
         0,
@@ -478,56 +499,7 @@
         0,
         0
       ],
-      "/home/ubuntu/workspace/app/controllers/questions_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+      "/home/ubuntu/workspace/mypiazza2/app/controllers/responses_controller.rb": [
         0,
         0,
         0,
@@ -570,7 +542,7 @@
         0,
         0
       ],
-      "/home/ubuntu/workspace/app/controllers/responses_controller.rb": [
+      "/home/ubuntu/workspace/mypiazza2/app/controllers/questions_controller.rb": [
         0,
         0,
         0,
@@ -611,9 +583,6 @@
         0,
         0,
         0,
-        0
-      ],
-      "/home/ubuntu/workspace/app/mailers/user_mailer.rb": [
         0,
         0,
         0,
@@ -623,15 +592,49 @@
         0,
         0,
         0,
-        0
-      ],
-      "/home/ubuntu/workspace/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1461359100
+    "timestamp": 1461413605
   }
 }
