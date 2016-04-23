@@ -34,10 +34,22 @@ module NavigationHelpers
     when /^new thread for course "(.*)"$/
       course_path(Course.find_by_cnum($1)) + '/cthreads/new'
       
+    when /^the enrolments page for course "(.*)"$/
+      course_path(Course.find_by_cnum($1)) + '/enrolments'
+      
     when /^the edit page of thread "(.*)" for course "(.*)"$/
       course_path(Course.find_by_cnum($2)) + '/cthreads/' + Cthread.find_by_title($1).id.to_s + '/edit'
       # edit_course_cthread_path(Cthread.find_by_title($1))
-
+    when /^the show page of thread "(.*)" for course "(.*)"$/
+      course_path(Course.find_by_cnum($2)) + '/cthreads/' + Cthread.find_by_title($1).id.to_s
+      
+    when /^the edit page of question "(.*)" for thread "(.*)" and course "(.*)"$/
+      course_path(Course.find_by_cnum($3)) + '/cthreads/' + Cthread.find_by_title($2).id.to_s + '/questions/' + Question.find_by_heading($1).id.to_s + '/edit'
+    
+    when /^the show page of question "(.*)" for thread "(.*)" and course "(.*)"$/
+      course_path(Course.find_by_cnum($3)) + '/cthreads/' + Cthread.find_by_title($2).id.to_s + '/questions/' + Question.find_by_heading($1).id.to_s
+    
+      
     when /^the show page for course "(.*)"$/
       course_path(Course.find_by_cnum($1))
     # Add more mappings here.

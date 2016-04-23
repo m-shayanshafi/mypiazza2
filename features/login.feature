@@ -5,7 +5,7 @@ Feature: Sign in with user
 Scenario: Login
   Given a valid user
   When I go to the login page
-  And I fill in "Email" with "nofel@gmail.com"
+  And I fill in "Email" with "shan@gmail.com"
   And I fill in "Password" with "123456789"
   And I press "Log in"
   Then I should see "Signed in successfully."
@@ -21,7 +21,7 @@ Scenario: Signup
 Scenario: Failed Login
   Given a valid user
   When I go to the login page
-  And I fill in "Email" with "nofel@gmail.com"
+  And I fill in "Email" with "shan@gmail.com"
   And I fill in "Password" with "1234567"
   And I press "Log in"
   Then I should be on the login page
