@@ -18,17 +18,17 @@ Background: Logged in Properly
   | 1           | hw1       | 1990-05-25    |   1977-05-25  |   1977-05-26  |
   | 2           | hw2       | 1981-05-25    |   1982-06-25  |   1977-05-26  |
 
-  And the following questions exist
-  | course_id   | title     | posted_on     | created_at    | updated_at    |
-  | 1           | hw1       | 1990-05-25    |   1977-05-25  |   1977-05-26  |
-  | 2           | hw2       | 1981-05-25    |   1982-06-25  |   1977-05-26  |
+#   And the following questions exist
+#   | cthread_id | user_id | heading | statement|  posted_by     | created_at    | updated_at    |
+#   | 1          | 1       |    |   1977-05-25  |   1977-05-26  |
+#   | 2          | 2       |    |   1982-06-25  |   1977-05-26  |
 
-Scenario: Add a new Question
-  Given I am on the show page for course "CS 301"
-  When I follow "Create new thread"
-  And I fill in "Title" with "hw3"
-  And I press "Create Cthread"
-  Then I should be on the show page for course "CS 301"
-  And I should see "hw1"
-  And I should see "hw3"
-  And I should not see "hw2"
+# Scenario: Add a new Question
+#   Given I am on the show page for course "CS 301"
+#   When I follow "Create new thread"
+#   And I fill in "Title" with "hw3"
+#   And I press "Create Cthread"
+#   Then I should be on the show page for course "CS 301"
+#   And I should see "hw1"
+#   And I should see "hw3"
+#   And I should not see "hw2"
