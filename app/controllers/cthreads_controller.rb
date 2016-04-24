@@ -18,6 +18,7 @@ class CthreadsController < ApplicationController
         @course = Course.find_by_id(params[:course_id]);
         @cthread = @course.cthreads.find_by_id(params[:id]);
         @questions = @cthread.questions
+        @questions = @questions.order('created_at DESC')
         @user_names=Hash.new()
         @questions.each do |question|
             id=question.user_id

@@ -6,3 +6,11 @@ Given /the following questions exist/ do |questions_table|
   end
   # flunk "Unimplemented"
 end
+
+
+Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+  #  ensure that that e1 occurs before e2.
+  #  page.body is the entire content of the page as a string.
+  # flunk "Unimplemented"
+  page.body.should match /#{e1}.*#{e2}/m
+end

@@ -22,10 +22,16 @@ Background: Logged in Properly
   | cthread_id | user_id | heading  | statement       | posted_by | created_at | updated_at |
   | 1          | 2       | t1 q2 u2 | not so amazing  | Anonymous | 1977-05-26 | 1977-05-26 |
   | 2          | 1       | t2 q2 u1 | not so bad      | nofel     | 1977-05-26 | 1977-05-26 |
+  | 1          | 2       | t1 q2 u3 | sort test       | Anonymous | 1977-05-27 | 1977-05-27 |
+ 
  And the following enrolments exist:
   | course_id   | user_id   | created_at    | updated_at    |
   | 1           | 2         | 1977-05-25    |   1977-05-25  |
  
+Scenario: Sorted Question
+  Given I am on the show page of thread "hw1" for course "CS 301"
+  Then I should see "sort test" before "not so amazing"
+  
 Scenario: Add a new Question
   Given I am on the show page of thread "hw1" for course "CS 301"
   When I follow "New question"
@@ -60,3 +66,4 @@ Scenario: Edit Question
   And I should not see "Anonymous"
   And I should not see "t1 q2 u2"
   And I should see "testHead"
+
